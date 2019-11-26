@@ -6,7 +6,6 @@ const BotaoAutoStyle = style.button`
   width: 65px;
   border: none;
   border-radius: 8px;
-  background-color: #18d68d;
   color: white;
   font-weight: bold;
 `

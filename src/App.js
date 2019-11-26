@@ -1,11 +1,11 @@
 import React from 'react'
-import { Topo, Controles } from './containers'
+import { Topo, Conteudo } from './containers'
 
 function App () {
   return (
     <div className="main-container">
       <Topo />
-      <Controles />
+      <Conteudo />
     </div>
   )
 }

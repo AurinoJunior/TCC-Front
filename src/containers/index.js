@@ -1,7 +1,7 @@
 import Topo from './Topo/Topo'
-import Controles from './Controles/Controles'
+import Conteudo from './Conteudo/Conteudo'
 
 export {
   Topo,
-  Controles
+  Conteudo
 }
