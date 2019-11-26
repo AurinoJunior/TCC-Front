@@ -8,6 +8,10 @@ const TopoStyle = style.div`
     display: inline-block;
     margin:0;
   }
+
+  img {
+    float: right;
+  }
 `
 
 export default TopoStyle
