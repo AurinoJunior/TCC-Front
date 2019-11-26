@@ -1,16 +1,14 @@
 import style from 'styled-components'
 
 const TopoStyle = style.div`
+  display: grid
+  grid-template-columns: 1fr 1fr;
   height: 70px;
   width: 100%;
+  border-bottom: 1px solid black;
 
-  .horaData {
-    display: inline-block;
-    margin:0;
-  }
-
-  img {
-    float: right;
+  a {
+    justify-self: end;
   }
 `
 

@@ -1,11 +1,16 @@
 import React from 'react'
 
 import TopoStyle from './TopoStyle'
+import { Temperatura, NivelAgua, HoraData } from '../../components'
 
 const Topo = () => (
   <TopoStyle>
-    <p className='horaData'>{'11:01 25/11/2019'}</p>
-    <img src="/image/settings.png" alt="config" />
+    <HoraData />
+    <a href="#">
+      <img src="/image/settings.png" alt="config" />
+    </a>
+    <Temperatura />
+    <NivelAgua />
   </TopoStyle>
 )
 

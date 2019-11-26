@@ -3,18 +3,10 @@ import { Topo } from './containers'
 
 function App () {
   return (
-    <div style={style}>
+    <div className="main-container">
       <Topo />
     </div>
   )
-}
-
-const style = {
-  width: 480,
-  height: 320,
-  backgroundColor: 'white',
-  padding: 17,
-  boxSizing: 'border-box'
 }
 
 export default App
