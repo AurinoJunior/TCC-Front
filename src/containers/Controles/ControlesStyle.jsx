@@ -6,7 +6,7 @@ const ControlesStyle = style.div`
 
   ul {
     display:grid;
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: 1fr 1fr 1fr
     padding: 0 60px;
     margin:0;
 
