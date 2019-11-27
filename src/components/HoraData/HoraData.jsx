@@ -12,7 +12,7 @@ export default class HoraData extends Component {
 
   componentDidMount () {
     const data = Moment().format('ll')
-    const hora = Moment().format('LT')
+    const hora = Moment().format('LTS')
     this.setState({ data, hora })
   }
 
