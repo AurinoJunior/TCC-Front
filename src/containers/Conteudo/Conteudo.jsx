@@ -7,12 +7,12 @@ const Conteudo = function (props) {
   return (
     <ConteudoStyle>
       <ul>
-        <li>Filtro</li><Controles />
-        <li>Termostato</li><Controles />
-        <li>Cooler</li><Controles />
-        <li>Repositor</li><Controles />
-        <li>Alimentador</li><Controles />
-        <li>Iluminação</li><Controles />
+        <li>Filtro</li><Controles tipo="Filtro" />
+        <li>Termostato</li><Controles tipo="Termostato" />
+        <li>Cooler</li><Controles tipo="Cooler" />
+        <li>Repositor</li><Controles tipo="Repositor" />
+        <li>Alimentador</li><Controles tipo="Alimentador" />
+        <li>Iluminação</li><Controles tipo="Iluminacao" />
       </ul>
     </ConteudoStyle>
   )

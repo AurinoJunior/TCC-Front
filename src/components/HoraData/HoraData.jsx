@@ -11,8 +11,16 @@ export default class HoraData extends Component {
   }
 
   componentDidMount () {
+    this.getHoraData()
+  }
+
+  componentDidUpdate () {
+    this.hdTimer = setInterval(() => this.getHoraData(), 60000)
+  }
+
+  getHoraData () {
     const data = Moment().format('ll')
-    const hora = Moment().format('LTS')
+    const hora = Moment().format('LT')
     this.setState({ data, hora })
   }
 
