@@ -2,12 +2,36 @@ import style from 'styled-components'
 
 const TopoStyle = style.div`
   display: grid
-  grid-template-columns: 1fr 1fr;
   height: 70px;
   width: 100%;
   border-bottom: 1px solid black;
 
-  a {
+  .HD {
+    grid-area: horaData;
+  }
+
+  .botaoConfig {
+    grid-area: botaoConfig;
+  }
+
+  .temperatura {
+    grid-area: temperatura;
+  }
+
+  .nivelAgua {
+    grid-area: nivelAgua;
+  }
+
+  .camera {
+    grid-area: camera;
+  }
+
+  grid-template-areas:
+    "horaData botaoConfig botaoConfig"
+    "temperatura nivelAgua camera"
+  ;
+
+  .botaoConfig {
     justify-self: end;
   }
 `
