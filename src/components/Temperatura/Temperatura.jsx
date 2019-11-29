@@ -16,6 +16,36 @@ export default class Temperatura extends Component {
     const result = await axios.get('/temperatura')
     const { temperatura } = result.data
     this.setState({ graus: temperatura })
+    this.ligaCooler()
+    this.ligaTermostato()
+  }
+
+  async ligaCooler () {
+    if (this.state.graus >= 26) {
+      await axios.post('/relay', {
+        toggle: true,
+        tipoComponente: 'Cooler'
+      })
+    } else {
+      await axios.post('/relay', {
+        toggle: false,
+        tipoComponente: 'Cooler'
+      })
+    }
+  }
+
+  async ligaTermostato () {
+    if (this.state.graus <= 18) {
+      await axios.post('/relay', {
+        toggle: true,
+        tipoComponente: 'Termostato'
+      })
+    } else {
+      await axios.post('/relay', {
+        toggle: false,
+        tipoComponente: 'Termostato'
+      })
+    }
   }
 
   render () {

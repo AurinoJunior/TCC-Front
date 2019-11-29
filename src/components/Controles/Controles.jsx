@@ -51,7 +51,7 @@ export default class Controles extends Component {
         toggle: false,
         tipoComponente: this.state.tipoComponente
       })
-    }, 9500)
+    }, 9790)
   }
 
   // Controle botão automatico

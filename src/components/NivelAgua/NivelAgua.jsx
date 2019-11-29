@@ -10,7 +10,7 @@ export default class NivelAgua extends Component {
 
   // Verifica nivel de agua antes de renderizar o componente
   componentDidMount () {
-    this.nivelTimer = setInterval(() => this.getNivelAgua(), 30000)
+    this.nivelTimer = setInterval(() => this.getNivelAgua(), 5000)
   }
 
   async getNivelAgua () {
@@ -21,6 +21,21 @@ export default class NivelAgua extends Component {
       this.setState({ nivelOk: 'Bom' })
     } else {
       this.setState({ nivelOk: 'Ruim' })
+    }
+    this.ligaRepositor()
+  }
+
+  async ligaRepositor () {
+    if (this.state.nivelOk === 'Ruim') {
+      await axios.post('/relay', {
+        toggle: true,
+        tipoComponente: 'Repositor'
+      })
+    } else {
+      await axios.post('/relay', {
+        toggle: false,
+        tipoComponente: 'Repositor'
+      })
     }
   }
 
