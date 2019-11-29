@@ -16,6 +16,7 @@ export default class NivelAgua extends Component {
   async getNivelAgua () {
     const result = await axios.get('/nivelagua')
     const { nivel } = result.data
+    console.log(nivel)
     if (nivel === 1) {
       this.setState({ nivelOk: 'Bom' })
     } else {

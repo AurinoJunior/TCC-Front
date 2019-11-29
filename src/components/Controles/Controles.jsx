@@ -4,15 +4,16 @@ import axios from '../../service/axios'
 
 import ControlesStyle from './ControlesStyle'
 
-export default class BotaoAuto extends Component {
+export default class Controles extends Component {
   constructor (props) {
     super(props)
     this.changeAuto = this.changeAuto.bind(this)
     this.toggleRele = this.toggleRele.bind(this)
+    this.mudaToggle = this.mudaToggle.bind(this)
   }
 
   state = {
-    botaoAtivo: false,
+    automatico: false,
     toggle: false,
     tipoComponente: ''
   }
@@ -22,35 +23,55 @@ export default class BotaoAuto extends Component {
     this.setState({ tipoComponente: this.props.tipo })
   }
 
+  componentDidUpdate () {
+    this.toggleRele()
+  }
+
   // Faz a troca de ligado ou desligado do rele
   async toggleRele () {
-    const result = await axios.post('/relay', {
-      toggle: !this.state.toggle,
+    console.log('4', this.state.toggle)
+
+    await axios.post('/relay', {
+      toggle: this.state.toggle,
       tipoComponente: this.state.tipoComponente
     })
 
-    this.setState({ toggle: result.data.toggle })
+    if (this.state.tipoComponente === 'Alimentador' && this.state.toggle) {
+      this.desligaAlimentador()
+    }
+  }
+
+  mudaToggle () {
+    this.setState({ toggle: !this.state.toggle })
+  }
+
+  desligaAlimentador () {
+    this.alimentadorTime = setTimeout(async () => {
+      await axios.post('/relay', {
+        toggle: false,
+        tipoComponente: this.state.tipoComponente
+      })
+    }, 9500)
   }
 
   // Controle botão automatico
   changeAuto () {
     // Valor invertido
-    const value = !this.state.botaoAtivo
-
-    this.setState({ botaoAtivo: value })
+    this.setState({ automatico: !this.state.automatico })
   }
 
   render () {
     const style = {
-      backgroundColor: this.state.botaoAtivo ? '#18d68d' : 'grey'
+      backgroundColor: this.state.automatico ? '#18d68d' : 'grey'
     }
 
     return (
       <>
-        {!this.state.botaoAtivo ? (
+        {!this.state.automatico ? (
           <Switch
-            onChange={this.toggleRele}
+            onChange={this.mudaToggle}
             color="primary"
+            checked={this.state.toggle}
           />
         ) : (
           <Switch
